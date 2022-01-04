@@ -1,7 +1,6 @@
 let express = require('express');
 let app = express();
 const got = require('got')
-let api_key = require('../apikey')
 
 
 app.get('/:regionId/:summonerId', async (req, res, next) => {
@@ -14,7 +13,7 @@ app.get('/:regionId/:summonerId', async (req, res, next) => {
     async function getRank(regionId, summonerId) {
         return new Promise((resolve, reject) => {
             got.get(`https://${regionId}.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}`, {
-                headers: { 'X-Riot-Token': `${api_key.api_key}` }
+                headers: { 'X-Riot-Token': `${process.env.API_KEY}` }
             }).then(data => {
                 let body = JSON.parse(data.body)
                 resolve({
