@@ -1,6 +1,6 @@
 const itemsRoutes = require('../dataProcces/itemsProcess');
 const spellsRoutes = require('./spells');
-const championsDataRoutes = require('./championsdata');
+const championsDataRoutes = require('../dataProcces/championsProcess');
 const rankRoutes = require('./rank');
 const perksRoutes = require('./perks');
 const matchRoutes = require('../services/matchesService');

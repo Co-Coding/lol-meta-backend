@@ -1,8 +1,8 @@
 const HttpService = require('../services/http/httpService')
-
+//http://ddragon.leagueoflegends.com/cdn/12.1.1/img/spell/SummonerFlash.png
 const spellsProcess = async(matches) => {
     const httpService = new HttpService();
-    const spellsData = await httpService.getRequest('http://ddragon.leagueoflegends.com/cdn/10.5.1/data/en_US/summoner.json');
+    const spellsData = await httpService.getRequest('http://ddragon.leagueoflegends.com/cdn/12.1.1/data/en_US/summoner.json');
     const matchesProccesed = matches;
 
     let participantsArr = matches.map(m => {
