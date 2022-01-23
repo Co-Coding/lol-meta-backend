@@ -6,24 +6,24 @@ const championsProcess = async (matches) => {
     const httpService = new HttpService();
     const championsData = await httpService.getRequest('http://ddragon.leagueoflegends.com/cdn/12.1.1/data/en_US/champion.json');
     const championsDataArr = championsDataToArr(championsData.data)
-    const matchesProcessed = matches;
 
-    let participantsArr = matches.map(m => {
-        return m.info.participants;
-    });
-    for (let index = 0; index < participantsArr.length; index++) {
-        const players = participantsArr[index];
+    const championProcessed = matches.map( match => {
 
-        for (let j = 0; j < players.length; j++) {
-            const player = players[j];
+        const participants = match.info.participants
 
-            const championData = championsDataArr.filter( champion => champion.id === player.championName)
-            player.championData = championData
-            player.championAsset = `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/${player.championName}.png`
+        for (let i = 0; i < participants.length; i++) {
+            const participant = participants[i];
 
+            const championData = championsDataArr.filter( champion => champion.id === participant.championName)
+            participant.championData = championData
+            participant.championAsset = `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/${participant.championName}.png`
         }
-    }
-    return matchesProcessed;
+
+        return match
+
+    }  )
+
+    return championProcessed;
 };
 
 const championsDataToArr = (championsData) => {

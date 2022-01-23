@@ -3,31 +3,30 @@ const HttpService = require('../services/http/httpService')
 const perksProcess = async(matches) => {
     const httpService = new HttpService();
     const perksData = await httpService.getRequest('http://ddragon.canisback.com/10.6.1/data/en_US/runesReforged.json');
-    const matchesProccesed = matches;
 
-    let participantsArr = matches.map(m => {
-        return m.info.participants;
-    });
-    for (let index = 0; index < participantsArr.length; index++) {
-        const players = participantsArr[index];
+    const perksProcessed = matches.map((match,index) => {
+        const participants = match.info.participants
+        
+        for (let i = 0; i < participants.length; i++) {
 
-        for (let j = 0; j < players.length; j++) {
+            participantPerks = participants[i].perks;
 
-            playerPerks = players[j].perks;
-
-            const perkStyle = playerPerks.styles[0].style;
+            const perkStyle = participantPerks.styles[0].style;
             const perkStyleInfo = getPerkInfo(perksData, perkStyle);
-            playerPerks.styles[0].styleInfo = perkStyleInfo;
+            participantPerks.styles[0].styleInfo = perkStyleInfo;
 
 
-            const perkSubStyle = playerPerks.styles[1].style;
+            const perkSubStyle = participantPerks.styles[1].style;
             const perkSubStyleInfo = getPerkInfo(perksData, perkSubStyle);
-            playerPerks.styles[1].styleInfo = perkSubStyleInfo;
+            participantPerks.styles[1].styleInfo = perkSubStyleInfo;
         }
 
-    }
+            return match
+            
 
-    return matchesProccesed;
+    })
+
+    return perksProcessed;
 
 };
 

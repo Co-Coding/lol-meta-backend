@@ -1,14 +1,10 @@
 const itemsProcess = (matches) => {
-    const matchesProcessed = matches;
- // items data http://ddragon.leagueoflegends.com/cdn/12.1.1/data/en_US/item.json
-    let participantsArr = matches.map(m => {
-        return m.info.participants;
-    });
-    for (let index = 0; index < participantsArr.length; index++) {
-        const players = participantsArr[index];
+    
+    let matchProcessed = matches.map( match => {
+        const participants = match.info.participants
 
-        for (let j = 0; j < players.length; j++) {
-            const player = players[j];
+        for (let i = 0; i < participants.length; i++) {
+            const player = participants[i];
             let itemAsset0 = `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/item/${player.item0}.png`;
             let itemAsset1 = `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/item/${player.item1}.png`;
             let itemAsset2 = `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/item/${player.item2}.png`;
@@ -24,8 +20,11 @@ const itemsProcess = (matches) => {
             player.item5 = itemAsset5;
             player.item6 = itemAsset6;
         }
-    }
-    return matchesProcessed;
+
+        return match;
+    });
+
+    return matchProcessed;
 };
 
 
