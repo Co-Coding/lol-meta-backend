@@ -1,6 +1,5 @@
 const HttpService = require('../services/http/httpService')
 
-
 const championsProcess = async (matches) => {
 
     const httpService = new HttpService();
