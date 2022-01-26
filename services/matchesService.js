@@ -7,7 +7,7 @@ class MatchesService {
 
         const url = 'https://americas.api.riotgames.com/lol/match/v5/matches/';
         const httpService = new HttpService();
-        const [...matches] = await Promise.all([
+        const matches = await Promise.all([
             httpService.getRequest(`${url}${matchHistory[0]}`),
             httpService.getRequest(`${url}${matchHistory[1]}`),
             httpService.getRequest(`${url}${matchHistory[2]}`),
@@ -22,6 +22,5 @@ class MatchesService {
         return matches;
     }
 }
-
 
 module.exports = MatchesService;
