@@ -9,7 +9,7 @@ class SummonerDataService {
         const summoner = await this.summonerService.getBySummonerName(req.params.summonerName, req.params.regionId);
         const matchHistory = await this.matchHistoryService.getMatchHistory(summoner.puuid);
         const matches = await this.matchesService.getMatches(matchHistory);
-        const participants = this.matchProcessService.matchProcess(matches);
+        const participants = this.matchProcessService.matchProcess(matches, summoner);
 
         return participants;
     }
