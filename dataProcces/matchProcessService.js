@@ -1,4 +1,4 @@
-const itemsProcess = require('../dataProcces/itemsProcess');
+const itemsProcessing = require('./itemsProcessing');
 const perksProcess = require('../dataProcces/perksProcess');
 const championsProcess = require('../dataProcces/championsProcess');
 const timeProcess = require('../dataProcces/timeProcess');
@@ -9,13 +9,13 @@ const queueProcess = require('./queueProcess');
 class MatchProcessService {
 
     async matchProcess(matches, summoner) {
-        const itemsProcessed = await itemsProcess(matches);
+        const itemsProcessed = await itemsProcessing(matches);
         const perksProcessed = await perksProcess(itemsProcessed);
         const championsProcessed = await championsProcess(perksProcessed);
         const timeProcessed = await timeProcess(championsProcessed)
         const queueProcessed = await queueProcess(timeProcessed)
         const rankProcessed = await rankProcess(queueProcessed, summoner.id)
-        // const spellsProcessed = spellsProcess(perksProcessed);
+        //const spellsProcessed = spellsProcess(perksProcessed);
         
         return rankProcessed;
 
