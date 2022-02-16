@@ -2,9 +2,9 @@ const  _ = require('lodash');
 
 const itemsProcessing = (matches) => {
 
-    const deepClonedObject = _.cloneDeep(matches);
+    const matchesDeepCloned = _.cloneDeep(matches);
     
-    const matchProcessed = deepClonedObject.map( match => {
+    const matchProcessed = matchesDeepCloned.map( match => {
         const participants = match.info.participants
 
         participants.forEach(participant => {
