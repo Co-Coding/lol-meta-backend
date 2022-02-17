@@ -1,5 +1,5 @@
 const { expect } = require('chai');
-const championsProcess = require('../../dataProcces/championsProcess');
+const championsProcessing = require('../../dataProcces/championsProcessing');
 const mockMatches = require('./dataMock/matches.json')
 const championsDataMock = require('./dataMock/championsData.json')
 const HttpService = require('../../services/http/httpService');
@@ -24,7 +24,7 @@ describe('Test Champions Proccesing', () => {
 
 
     it("Should return championData inside matches object", async () => {
-        const res = await championsProcess(mockMatches)
+        const res = await championsProcessing(mockMatches)
         expect(res[0].info.participants[0].championData[0].id).to.be.equal("Urgot");
     })
 
