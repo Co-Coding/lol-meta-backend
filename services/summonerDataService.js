@@ -5,8 +5,8 @@ class SummonerDataService {
         this.matchesService = opts.matchesService;
         this.matchProcessService = opts.matchProcessService;
     }
-    async getSummonerData(req) {
-        const summoner = await this.summonerService.getBySummonerName(req.params.summonerName, req.params.regionId);
+    async getSummonerData(summonerName, regionId) {
+        const summoner = await this.summonerService.getBySummonerName(summonerName, regionId);
         const matchHistory = await this.matchHistoryService.getMatchHistory(summoner.puuid);
         const matches = await this.matchesService.getMatches(matchHistory);
         const participants = this.matchProcessService.matchProcess(matches, summoner);

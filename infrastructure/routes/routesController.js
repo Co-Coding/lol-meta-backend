@@ -1,9 +1,9 @@
 
 const summonerController = require('./summonerController');
-const appRoutes = require('./app');
+const getRank = require('./getRank');
 
 
 module.exports = {
     summonerController,
-    appRoutes,
+    getRank
 }

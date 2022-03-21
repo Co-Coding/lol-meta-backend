@@ -1,7 +1,9 @@
-const routesController = require('../routes/routesController');
+const routesController = require('../infrastructure/routes/routesController');
+
 const routes = (app) => {
 
-    app.use('/summName/:summonerName/:regionId', routesController.summonerController);
+    app.get('/summName/:summonerName/:regionId', routesController.summonerController);
+    app.post('/rank', routesController.getRank);
 }
 
 
