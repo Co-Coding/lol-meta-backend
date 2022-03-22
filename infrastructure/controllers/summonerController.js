@@ -1,5 +1,5 @@
-const container = require('../../services/lib/container/container');
-const errorHandler = require('../../utils/errorHandler')
+const container = require('../container/container');
+const errorHandler = require('../utils/errorHandler')
 
 const summonerController = async(req, res, next) => {
 

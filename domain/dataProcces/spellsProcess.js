@@ -1,4 +1,4 @@
-const HttpService = require('../services/http/httpService')
+const HttpService = require('../../infrastructure/http/httpService');
 //http://ddragon.leagueoflegends.com/cdn/12.1.1/img/spell/SummonerFlash.png
 const spellsProcess = async(matches) => {
     const httpService = new HttpService();

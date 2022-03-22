@@ -1,4 +1,4 @@
-const routesController = require('../infrastructure/controllers/routesController');
+const routesController = require('../controllers/routesController');
 
 const routes = (app) => {
 

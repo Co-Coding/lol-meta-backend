@@ -1,10 +1,10 @@
 const awilix = require('awilix');
-const SummonerService = require('../../summonerService');
-const HttpService = require('../../http/httpService');
-const SummonerDataService = require('../../summonerDataService');
-const MatchHistoryService = require('../../matchHistoryService');
-const MatchesService = require('../../matchesService');
-const MatchProcessService = require('../../../dataProcces/matchProcessService');
+const SummonerService = require('../services/summonerService');
+const HttpService = require('../http/httpService');
+const SummonerDataService = require('../../domain/summonerDataService');
+const MatchHistoryService = require('../services/matchHistoryService');
+const MatchesService = require('../services/matchesService');
+const MatchProcessService = require('../../domain/dataProcces/matchProcessService');
 
 
 const container = awilix.createContainer();

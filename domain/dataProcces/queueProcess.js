@@ -1,4 +1,4 @@
-const HttpService = require('../services/http/httpService')
+const HttpService = require('../../infrastructure/http/httpService');
 
 const queueProcess = async (matches) => {
 

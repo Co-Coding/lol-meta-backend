@@ -1,5 +1,5 @@
 const  _ = require('lodash');
-const HttpService = require('../services/http/httpService')
+const HttpService = require('../../infrastructure/http/httpService');
 
 const championsProcessing = async (matches) => {
 

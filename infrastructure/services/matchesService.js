@@ -1,4 +1,4 @@
-const HttpService = require('../services/http/httpService');
+const HttpService = require('../http/httpService');
 
 class MatchesService {
     constructor() {}
