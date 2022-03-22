@@ -1,6 +1,6 @@
 
 const { expect } = require('chai');
-const itemsProcessing = require('../../dataProcces/itemsProcessing');
+const itemsProcessing = require('../../domain/dataProcces/itemsProcessing');
 const mockMatches = require('./dataMock/matches.json')
 
 describe('Test Champions Procesing', () => {

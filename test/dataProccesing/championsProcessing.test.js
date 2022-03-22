@@ -1,10 +1,9 @@
 const { expect } = require('chai');
-const championsProcessing = require('../../dataProcces/championsProcessing');
-const mockMatches = require('./dataMock/matches.json')
-const championsDataMock = require('./dataMock/championsData.json')
-const HttpService = require('../../services/http/httpService');
-jest.mock('../../services/http/httpService')
-
+const championsProcessing = require('../../domain/dataProcces/championsProcessing');
+const mockMatches = require('./dataMock/matches.json');
+const championsDataMock = require('./dataMock/championsData.json');
+const HttpService = require('../../infrastructure/http//httpService');
+jest.mock('../../infrastructure/http//httpService');
 
 describe('Test Champions Proccesing', () => {
 
