@@ -1,11 +1,8 @@
 const  _ = require('lodash');
-const HttpService = require('../../infrastructure/http/httpService');
 
-const championsProcessing = async (matches) => {
+const championsProcessing = async (matches, championsData) => {
 
-    const httpService = new HttpService();
     const matchesDeepCloned = _.cloneDeep(matches);
-    const championsData = await httpService.getRequest('http://ddragon.leagueoflegends.com/cdn/12.1.1/data/en_US/champion.json');
     const championsDataArr = championsDataToArr(championsData.data);
 
     const championProcessed = matchesDeepCloned.map( match => {

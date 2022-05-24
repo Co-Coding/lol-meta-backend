@@ -1,9 +1,9 @@
 const  _ = require('lodash');
-const HttpService = require('../../infrastructure/http/httpService');
+// const HttpService = require('../../infrastructure/http/httpService');
 
-const perksProcessing = async (matches) => {
-    const httpService = new HttpService();
-    const perksData = await httpService.getRequest('http://ddragon.canisback.com/10.6.1/data/en_US/runesReforged.json');
+const perksProcessing = async (matches, perksData) => {
+    // const httpService = new HttpService();
+    // const perksData = await httpService.getRequest('http://ddragon.canisback.com/10.6.1/data/en_US/runesReforged.json');
 
     const matchesDeepCloned = _.cloneDeep(matches);
 
