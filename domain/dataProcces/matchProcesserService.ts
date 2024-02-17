@@ -1,5 +1,5 @@
 import { HttpService } from "../../infrastructure/http/httpService";
-import { SummonerData } from "../../infrastructure/services/types";
+import { Matches, SummonerData } from "../../infrastructure/services/types";
 
 import { itemsProcessing } from "./itemsProcessing";
 import { perksProcessing } from "./perksProcessing";
@@ -8,27 +8,19 @@ import { timeProcess } from "./timeProcess";
 import { rankProcess } from "./rankProcess";
 import { queueProcess } from "./queueProcess";
 
-// const itemsProcessing = require("./itemsProcessing");
-// const perksProcessing = require("./perksProcessing");
-// const championsProcessing = require("./championsProcessing");
-// const timeProcess = require("./timeProcess");
-// const rankProcess = require("./rankProcess");
-// const queueProcess = require("./queueProcess");
-//const spellsProcess = require('../dataProcces/spellsProcess');
-
 export class MatchProcesser {
   httpService: HttpService;
   constructor(httpService: HttpService) {
     this.httpService = httpService;
   }
 
-  async matchProcess(matches: any, summoner: SummonerData) {
+  async matchProcess(matches: Matches[], summoner: SummonerData) {
     const data = await this.getData();
     const perksData = data[0];
     const championsData = data[1];
     const queuesData = data[2];
 
-    const itemsProcessed = await itemsProcessing(matches);
+    const itemsProcessed = itemsProcessing(matches);
     const perksProcessed = await perksProcessing(itemsProcessed, perksData);
     const championsProcessed = await championsProcessing(
       perksProcessed,

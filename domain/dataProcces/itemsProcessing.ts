@@ -1,11 +1,15 @@
-const _ = require("lodash");
+import { Matches, Participant } from "../../infrastructure/services/types";
+import _ from "lodash"
 
-export const itemsProcessing = (matches: any) => {
+export const itemsProcessing = (matches: Matches[]) => {
   const matchesDeepCloned = _.cloneDeep(matches);
 
-  const matchProcessed = matchesDeepCloned.map((match: any) => {
-    const participants = match.info.participants.map((participant: any) => {
-      const itemAssets = [
+  type itemAssets = Extract<keyof Participant, `item${number}`>
+
+  const matchProcessed = matchesDeepCloned.map((match: Matches) => {
+
+    const participants = match.info.participants.map((participant: Participant) => {
+      const itemAssets: itemAssets[] = [
         "item0",
         "item1",
         "item2",
@@ -16,9 +20,7 @@ export const itemsProcessing = (matches: any) => {
       ];
 
       itemAssets.forEach((item) => {
-        participant[
-          item
-        ] = `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/item/${participant[item]}.png`;
+        participant[item] = `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/item/${participant[item]}.png`;
       });
 
       return participant;
