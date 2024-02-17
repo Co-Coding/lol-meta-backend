@@ -1,10 +1,10 @@
 const _ = require("lodash");
 
-const perksProcessing = async (matches, perksData) => {
+export const perksProcessing = async (matches: any, perksData: any) => {
   const matchesDeepCloned = _.cloneDeep(matches);
 
-  const perksProcessed = matchesDeepCloned.map((match) => {
-    const participants = match.info.participants.map((participant) => {
+  const perksProcessed = matchesDeepCloned.map((match: any) => {
+    const participants = match.info.participants.map((participant: any) => {
       const participantPerks = participant.perks;
 
       const perkStyleId = participantPerks.styles[0].style;
@@ -41,14 +41,12 @@ const perksProcessing = async (matches, perksData) => {
   return perksProcessed;
 };
 
-const getMainPerkInfo = (perksData, perkStyleId, mainPerkId) => {
-  const getStyle = perksData.find((styleData) => styleData.id === perkStyleId);
+const getMainPerkInfo = (perksData: any, perkStyleId: any, mainPerkId: any) => {
+  const getStyle = perksData.find((styleData: any) => styleData.id === perkStyleId);
 
   const mainPerkInfo = getStyle.slots[0].runes.find(
-    (rune) => rune.id === mainPerkId
+    (rune: any) => rune.id === mainPerkId
   );
 
   return mainPerkInfo ?? null;
 };
-
-module.exports = perksProcessing;

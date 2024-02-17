@@ -1,17 +1,28 @@
-const itemsProcessing = require("./itemsProcessing");
-const perksProcessing = require("./perksProcessing");
-const championsProcessing = require("./championsProcessing");
-const timeProcess = require("./timeProcess");
-const rankProcess = require("./rankProcess");
-const queueProcess = require("./queueProcess");
+import { HttpService } from "../../infrastructure/http/httpService";
+import { SummonerData } from "../../infrastructure/services/types";
+
+import { itemsProcessing } from "./itemsProcessing";
+import { perksProcessing } from "./perksProcessing";
+import { championsProcessing } from "./championsProcessing";
+import { timeProcess } from "./timeProcess";
+import { rankProcess } from "./rankProcess";
+import { queueProcess } from "./queueProcess";
+
+// const itemsProcessing = require("./itemsProcessing");
+// const perksProcessing = require("./perksProcessing");
+// const championsProcessing = require("./championsProcessing");
+// const timeProcess = require("./timeProcess");
+// const rankProcess = require("./rankProcess");
+// const queueProcess = require("./queueProcess");
 //const spellsProcess = require('../dataProcces/spellsProcess');
 
-class MatchProcesser {
-  constructor(httpService) {
+export class MatchProcesser {
+  httpService: HttpService;
+  constructor(httpService: HttpService) {
     this.httpService = httpService;
   }
 
-  async matchProcess(matches, summoner) {
+  async matchProcess(matches: any, summoner: SummonerData) {
     const data = await this.getData();
     const perksData = data[0];
     const championsData = data[1];
@@ -47,4 +58,3 @@ class MatchProcesser {
   }
 }
 
-module.exports = MatchProcesser;
