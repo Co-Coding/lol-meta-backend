@@ -1,20 +1,20 @@
-const HttpService = require('../../infrastructure/http/httpService');
+import { HttpService } from "../../infrastructure/http/httpService";
 
-const rankProcess = async (matches, summonerId) => {
+export const rankProcess = async (matches: any, summonerId: any) => {
     const httpService = new HttpService();
-    
+
     try {
         const rankedUrl = `https://la2.api.riotgames.com/lol/league/v4/entries/by-summoner/${summonerId}`
         const rankedData = await httpService.getRequestApi(rankedUrl);
-        
-        const rankedProcessed = matches.map( match => {
+
+        const rankedProcessed = matches.map((match: any) => {
             const participants = match.info.participants;
 
-            const participant = participants.find( participant => participant.summonerName === rankedData[0].summonerName)
+            const participant = participants.find((participant: any) => participant.summonerName === rankedData[0].summonerName)
             participant.rankedData = rankedData
 
             return match
-         
+
         })
         return rankedProcessed
 
@@ -23,6 +23,3 @@ const rankProcess = async (matches, summonerId) => {
     }
 
 }
-
-
-module.exports = rankProcess;

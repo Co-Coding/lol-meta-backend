@@ -1,5 +1,6 @@
 apikey.js
 .env
+build/
 
 # Logs
 logs

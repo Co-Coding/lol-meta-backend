@@ -1,10 +1,10 @@
 const _ = require("lodash");
 
-const itemsProcessing = (matches) => {
+export const itemsProcessing = (matches: any) => {
   const matchesDeepCloned = _.cloneDeep(matches);
 
-  const matchProcessed = matchesDeepCloned.map((match) => {
-    const participants = match.info.participants.map((participant) => {
+  const matchProcessed = matchesDeepCloned.map((match: any) => {
+    const participants = match.info.participants.map((participant: any) => {
       const itemAssets = [
         "item0",
         "item1",
@@ -30,4 +30,3 @@ const itemsProcessing = (matches) => {
   return matchProcessed;
 };
 
-module.exports = itemsProcessing;

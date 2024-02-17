@@ -1,16 +1,16 @@
-const  _ = require('lodash');
+const _ = require('lodash');
 
-const championsProcessing = async (matches, championsData) => {
+export const championsProcessing = async (matches: any, championsData: any) => {
 
     const matchesDeepCloned = _.cloneDeep(matches);
     const championsDataArr = championsDataToArr(championsData.data);
 
-    const championProcessed = matchesDeepCloned.map( match => {
-        
+    const championProcessed = matchesDeepCloned.map((match: any) => {
+
         const participants = match.info.participants;
 
-        participants.forEach(participant => {
-            const championData = championsDataArr.filter( champion => champion.id === participant.championName)
+        participants.forEach((participant: any) => {
+            const championData = championsDataArr.filter((champion: any) => champion.id === participant.championName)
             participant.championData = championData;
             participant.championAsset = `http://ddragon.leagueoflegends.com/cdn/12.1.1/img/champion/${participant.championName}.png`;
         });
@@ -20,16 +20,13 @@ const championsProcessing = async (matches, championsData) => {
     return championProcessed;
 };
 
-const championsDataToArr = (championsData) => {
-    const championsDataArr = [];
+const championsDataToArr = (championsData: any) => {
+    const championsDataArr: any = [];
 
-    Object.keys(championsData).forEach( key => {
+    Object.keys(championsData).forEach(key => {
         const champion = championsData[key];
         championsDataArr.push(champion);
     })
 
     return championsDataArr;
 }
-
-
-module.exports = championsProcessing;
