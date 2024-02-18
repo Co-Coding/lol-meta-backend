@@ -1,4 +1,4 @@
-import { MatchIdList } from "./types";
+import { MatchIdList, Matches } from "./types";
 import { HttpService } from "../http/httpService";
 
 export class MatchesService {
@@ -12,7 +12,7 @@ export class MatchesService {
     return matchIdList as MatchIdList;
   }
 
-  async getMatches(matchIdList: MatchIdList): Promise<any> {
+  async getMatches(matchIdList: MatchIdList): Promise<Matches[]> {
     const url = "https://americas.api.riotgames.com/lol/match/v5/matches/";
     const httpService = new HttpService();
     console.log(`${url}${matchIdList[0]}`);
