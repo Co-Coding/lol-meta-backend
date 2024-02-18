@@ -1,4 +1,4 @@
-import { HttpService } from "../../infrastructure/http/httpService";
+import { HttpService } from "../../http/httpService";
 
 export const rankProcess = async (matches: any, summonerId: any) => {
     const httpService = new HttpService();

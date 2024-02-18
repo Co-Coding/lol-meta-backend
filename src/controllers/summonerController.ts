@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { summonerDataService } from "../container/dependencyContainer";
-import { errorHandler } from "../utils/errorHandler";
+import { errorHandler } from "../errorHandler/errorHandler";
 
 export const summonerController = async (req: Request, res: Response) => {
   const { summonerName, regionId } = req.params;
@@ -8,7 +8,6 @@ export const summonerController = async (req: Request, res: Response) => {
   try {
     const resp = await summonerDataService.getSummonerData(summonerName, regionId);
     res.status(200).json({
-      ok: true,
       resp,
     });
   } catch (err) {

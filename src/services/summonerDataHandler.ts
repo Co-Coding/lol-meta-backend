@@ -1,4 +1,4 @@
-import { MatchesService, Summoner } from "../../infrastructure/services/types";
+import { MatchesService, Summoner } from "./types";
 
 export class SummonerDataHandler {
 

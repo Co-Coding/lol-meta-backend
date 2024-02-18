@@ -1,7 +1,7 @@
 import { SummonerService } from "../services/summonerService";
 import { MatchesService } from "../services/matchesService";
-import { Match } from "../../domain/dataProcces/match";
-import { SummonerDataHandler } from "../../application/summoner/summonerDataHandler";
+import { Match } from "../services/dataProccesServices/match";
+import { SummonerDataHandler } from "../services/summonerDataHandler";
 import { HttpService } from "../http/httpService";
 
 const httpService = new HttpService();

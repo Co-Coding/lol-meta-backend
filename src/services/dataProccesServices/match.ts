@@ -1,5 +1,5 @@
-import { HttpService } from "../../infrastructure/http/httpService";
-import { Matches, SummonerData } from "../../infrastructure/services/types";
+import { HttpService } from "../../http/httpService";
+import { Matches, SummonerData } from "../types";
 
 import { processItems } from "./processItems";
 import { processPerks } from "./processPerks";

@@ -1,4 +1,4 @@
-import { Matches, Participant } from "../../infrastructure/services/types";
+import { Matches, Participant } from "../types";
 import _ from "lodash"
 
 export const processItems = (matches: Matches[]) => {
