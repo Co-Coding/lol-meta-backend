@@ -1,10 +1,10 @@
 import { HttpService } from "../../infrastructure/http/httpService";
 import { Matches, SummonerData } from "../../infrastructure/services/types";
 
-import { processItems } from "./itemsProcessing";
+import { processItems } from "./processItems";
 import { processPerks } from "./processPerks";
 import { processChampions } from "./processChampions";
-import { timeProcess } from "./processItems";
+import { timeProcess } from "./timesProcess";
 import { rankProcess } from "./processRank";
 import { queueProcess } from "./processQueue";
 
