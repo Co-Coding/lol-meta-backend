@@ -1,6 +1,6 @@
 const _ = require('lodash');
 
-export const championsProcessing = async (matches: any, championsData: any) => {
+export const processChampions = async (matches: any, championsData: any) => {
 
     const matchesDeepCloned = _.cloneDeep(matches);
     const championsDataArr = championsDataToArr(championsData.data);

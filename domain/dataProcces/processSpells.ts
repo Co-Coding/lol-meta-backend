@@ -1,6 +1,6 @@
 // const HttpService = require('../../infrastructure/http/httpService');
 //http://ddragon.leagueoflegends.com/cdn/12.1.1/img/spell/SummonerFlash.png
-export const spellsProcess = async (matches: any) => {
+export const processSpells = async (matches: any) => {
     // const httpService = new HttpService();
     // const spellsData = await httpService.getRequest('http://ddragon.leagueoflegends.com/cdn/12.1.1/data/en_US/summoner.json');
     const matchesProccesed = matches;

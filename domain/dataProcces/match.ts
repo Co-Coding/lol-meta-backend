@@ -1,35 +1,35 @@
 import { HttpService } from "../../infrastructure/http/httpService";
 import { Matches, SummonerData } from "../../infrastructure/services/types";
 
-import { itemsProcessing } from "./itemsProcessing";
-import { perksProcessing } from "./perksProcessing";
-import { championsProcessing } from "./championsProcessing";
-import { timeProcess } from "./timeProcess";
-import { rankProcess } from "./rankProcess";
-import { queueProcess } from "./queueProcess";
+import { processItems } from "./itemsProcessing";
+import { processPerks } from "./processPerks";
+import { processChampions } from "./processChampions";
+import { timeProcess } from "./processItems";
+import { rankProcess } from "./processRank";
+import { queueProcess } from "./processQueue";
 
-export class MatchProcesser {
+export class Match {
   httpService: HttpService;
   constructor(httpService: HttpService) {
     this.httpService = httpService;
   }
 
-  async matchProcess(matches: Matches[], summoner: SummonerData) {
+  async handler(matches: Matches[], summoner: SummonerData) {
     const data = await this.getData();
     const perksData = data[0];
     const championsData = data[1];
     const queuesData = data[2];
 
-    const itemsProcessed = itemsProcessing(matches);
-    const perksProcessed = await perksProcessing(itemsProcessed, perksData);
-    const championsProcessed = await championsProcessing(
+    const itemsProcessed = processItems(matches);
+    const perksProcessed = await processPerks(itemsProcessed, perksData);
+    const championsProcessed = await processChampions(
       perksProcessed,
       championsData
     );
     const timeProcessed = await timeProcess(championsProcessed);
     const queueProcessed = await queueProcess(timeProcessed, queuesData);
     const rankProcessed = await rankProcess(queueProcessed, summoner.id);
-    //const spellsProcessed = spellsProcess(perksProcessed);
+    //const spellsProcessed = processSpells(perksProcessed);
 
     return rankProcessed;
   }
