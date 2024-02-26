@@ -14,8 +14,8 @@ export interface MatchProcesser {
     matchProcess(matches, summoner): Promise<MatchesProcessed>
 }
 
-export interface HttpService {
-
+export interface RiotClient {
+    getBySummonerName(summonerName: string, regionId: string): Promise<SummonerData>
 }
 
 export interface MatchesData {
