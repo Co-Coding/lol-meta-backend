@@ -1,7 +1,7 @@
-import { Matches, Participant } from "../../infrastructure/services/types";
+import { Matches, Participant } from "../types";
 import _ from "lodash"
 
-export const itemsProcessing = (matches: Matches[]) => {
+export const processItems = (matches: Matches[]) => {
   const matchesDeepCloned = _.cloneDeep(matches);
 
   type itemAssets = Extract<keyof Participant, `item${number}`>

@@ -1,6 +1,6 @@
 const _ = require("lodash");
 
-export const perksProcessing = async (matches: any, perksData: any) => {
+export const processPerks = async (matches: any, perksData: any) => {
   const matchesDeepCloned = _.cloneDeep(matches);
 
   const perksProcessed = matchesDeepCloned.map((match: any) => {

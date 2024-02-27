@@ -23,8 +23,11 @@
     "lodash": "^4.17.15",
     "node-fetch": "^2.6.0",
     "nodemon": "^2.0.15",
+    "pg": "^8.11.3",
     "pyke": "^3.1.1",
-    "teemojs": "^1.3.4"
+    "reflect-metadata": "^0.2.1",
+    "teemojs": "^1.3.4",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",
